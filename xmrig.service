@@ -1,0 +1,18 @@
+# in /etc/systemd/system/xmrig.service
+[Unit]
+Description=XMRig Monero Miner
+After=network.target
+
+[Service]
+User=user1
+Group=user1
+
+StandardOutput=journal
+StandardError=journal
+
+ExecStart=/home/user1/xmrig-6.19.2/xmrig --config=/home/user1/xmrig-6.19.2/config.json
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
