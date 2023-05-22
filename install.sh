@@ -33,7 +33,7 @@ cd ~/xmrig-6.19.2/
 wget https://github.com/xmrig/xmrig/blob/master/scripts/randomx_boost.sh
 chmod +x randomx_boost.sh
 sudo apt install msr-tools
-./randomx_boost.sh
+sudo ./randomx_boost.sh
 
 #Install and start service
 sudo cp xmrig.service /etc/systemd/system/
