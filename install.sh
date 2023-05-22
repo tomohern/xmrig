@@ -1,7 +1,10 @@
 #!/bin/bash
 
+#Download and extract xmrig
 wget https://github.com/xmrig/xmrig/releases/download/v6.19.2/xmrig-6.19.2-focal-x64.tar.gz
 tar xzvf xmrig-6.19.2-focal-x64.tar.gz -C ~/
+
+#Update config file with the correct number of CPU cores
 procs=$(nproc)
 echo $procs
 if [[ $procs -eq 4 ]]
@@ -17,16 +20,21 @@ else
 echo 'error'
 fi
 
+#Update config file with correct hostname
 name=$(hostname)
 echo $name
 sed -i 's/            "pass": "rig1",/            "pass": "'$name'",/' config.json
 
+#Copy Config file to xmrig directory
 cp config.json ~/xmrig-6.19.2/
 
+#Run the randomx boost script
 cd ~/xmrig-6.19.2/
 wget https://github.com/xmrig/xmrig/blob/master/scripts/randomx_boost.sh
 chmod +x randomx_boost.sh
 sudo apt install msr-tools
 ./randomx_boost.sh
+
+#Install and start service
 sudo cp xmrig.service /etc/systemd/system/
 sudo systemctl enable --now xmrig
