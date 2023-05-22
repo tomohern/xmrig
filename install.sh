@@ -22,5 +22,11 @@ echo $name
 sed -i 's/            "pass": "rig1",/            "pass": "'$name'",/' config.json
 
 cp config.json ~/xmrig-6.19.2/
+
+cd ~/xmrig-6.19.2/
+wget https://github.com/xmrig/xmrig/blob/master/scripts/randomx_boost.sh
+chmod +x randomx_boost.sh
+sudo apt install msr-tools
+./randomx_boost.sh
 sudo cp xmrig.service /etc/systemd/system/
 sudo systemctl enable --now xmrig
