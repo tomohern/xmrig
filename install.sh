@@ -30,7 +30,7 @@ cp config.json ~/xmrig-6.19.2/
 #Run the randomx boost script
 cd ~/xmrig-6.19.2/
 wget https://raw.githubusercontent.com/xmrig/xmrig/master/scripts/randomx_boost.sh
-chmod +x randomx_boost.sh
+#chmod +x randomx_boost.sh
 sudo apt install msr-tools
 sudo ./randomx_boost.sh
 
