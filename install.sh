@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt install openssh-server -y
+
 ##Run the randomx boost script
 #wget https://raw.githubusercontent.com/xmrig/xmrig/master/scripts/randomx_boost.sh
 #chmod +x randomx_boost.sh
@@ -36,3 +38,5 @@ cp config.json ~/xmrig-6.19.2/
 #Install and start service
 sudo cp ~/xmrig/xmrig.service /etc/systemd/system/
 sudo systemctl enable --now xmrig
+
+echo "To monitor use: journalctl -u xmrig -n 50 -f"
