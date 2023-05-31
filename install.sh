@@ -36,6 +36,8 @@ sed -i 's/            "pass": "rig1",/            "pass": "'$name'",/' config.js
 cp config.json ~/xmrig-6.19.2/
 
 #Install and start service
+user=$(whoami)
+sed -i "s/user1/$user/g" xmrig.service
 sudo cp ~/xmrig/xmrig.service /etc/systemd/system/
 sudo systemctl enable --now xmrig
 
