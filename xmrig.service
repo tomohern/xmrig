@@ -4,9 +4,6 @@ Description=XMRig Monero Miner
 After=network.target
 
 [Service]
-User=user1
-Group=user1
-
 StandardOutput=journal
 StandardError=journal
 
