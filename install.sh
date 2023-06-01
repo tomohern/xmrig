@@ -1,11 +1,9 @@
 #!/bin/bash
 
-sudo apt install openssh-server -y
-
 ##Run the randomx boost script
 #wget https://raw.githubusercontent.com/xmrig/xmrig/master/scripts/randomx_boost.sh
 #chmod +x randomx_boost.sh
-sudo apt install msr-tools
+sudo apt install msr-tools -y
 sudo ./randomx_boost.sh
 
 #Download and extract xmrig
