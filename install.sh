@@ -14,13 +14,13 @@ procs=$(nproc)
 echo $procs
 if [[ $procs -eq 4 ]]
 then
-sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3],\n    },/' ~/xmrig/config.json
+sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3],\n    },/' ~/xmrig/config1.json
 elif  [[ $procs -eq 8 ]]
 then
-sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3, 4, 5, 6, 7],\n    },/' ~/xmrig/config.json
+sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3, 4, 5, 6, 7],\n    },/' ~/xmrig/config1.json
 elif  [[ $procs -eq 12 ]]
 then
-sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],\n    },/' ~/xmrig/config.json
+sed -i 's/    "cpu": true,/    "cpu": {\n        "rx": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],\n    },/' ~/xmrig/config1.json
 else
 echo 'error'
 fi
@@ -31,10 +31,10 @@ model=$(sudo dmidecode -t system | awk -F ' ' '/Product Name/ {print $4}')
 cpu=$(lscpu | awk -F ' ' '/Model name/ {print $5}')
 result="$name-$model-$cpu"
 echo $result
-sed -i 's/            "pass": "rig1",/            "pass": "'$result'",/' ~/xmrig/config.json
+sed -i 's/            "pass": "rig1",/            "pass": "'$result'",/' ~/xmrig/config1.json
 
 #Copy Config file to xmrig directory
-cp ~/xmrig/config.json ~/xmrig-6.19.2/
+cp ~/xmrig/config1.json ~/xmrig-6.19.2/config.json
 
 #Install and start service
 user=$(whoami)
