@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp ~/xmrig/config.json ~/xmrig/config1.json
+
 ##Run the randomx boost script
 #wget https://raw.githubusercontent.com/xmrig/xmrig/master/scripts/randomx_boost.sh
 #chmod +x randomx_boost.sh
