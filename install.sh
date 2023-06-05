@@ -27,8 +27,11 @@ fi
 
 #Update config file with correct hostname
 name=$(hostname)
-echo $name
-sed -i 's/            "pass": "rig1",/            "pass": "'$name'",/' ~/xmrig/config.json
+model=$(sudo dmidecode -t system | awk -F ' ' '/Product Name/ {print $4}')
+cpu=$(lscpu | awk -F ' ' '/Model name/ {print $5}')
+result="$name-$model-$cpu"
+echo $result
+sed -i 's/            "pass": "rig1",/            "pass": "'$result'",/' ~/xmrig/config.json
 
 #Copy Config file to xmrig directory
 cp ~/xmrig/config.json ~/xmrig-6.19.2/
